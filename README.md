@@ -4,7 +4,7 @@
 ![cuDNN 8.2.0](https://img.shields.io/badge/cudnn-8.2.0-green.svg?style=plastic)
 ![License CC BY-NC-SA](https://img.shields.io/badge/license-CC_BY--NC--SA--green.svg?style=plastic)
 
-This is the origin Pytorch implementation of FPPformer in the following paper: 
+This is the origin Pytorch implementation of FPPformerV2 in the following paper: 
 [FPPformerV2: EMD-Based Short Input Long Sequence Time-Series Forecasting] (Manuscript submitted to Information Fusion).
 
 ## Model Architecture
@@ -133,7 +133,7 @@ After you successfully run `./data/preprocess.py`, you will obtain folder tree:
 ```
 
 ## Baseline
-We select eight up-to-date baselines, including three TSFT (ARM, iTransformer, Basisformer), two TSFM(TSMixer, FreTS), one TCN (ModernTCN), one RNN-based forecasting method (WITRAN) and one cutting-edge statistics-based forecasting method (OneShotSTL).  Most of these baselines are relative latecomers to FPPformer and their state-of-the-art performances are competent in challenging or even surpassing it. Their source codes origins are given below:
+We select eight up-to-date baselines, including three TSFT (ARM, iTransformer, Basisformer), two TSFM (TSMixer, FreTS), one TCN (ModernTCN), one RNN-based forecasting method (WITRAN) and one cutting-edge statistics-based forecasting method (OneShotSTL).  Most of these baselines are relative latecomers to FPPformer and their state-of-the-art performances are competent in challenging or even surpassing it. Their source codes origins are given below:
 
 
 | Baseline |                                                                   Source Code                                                                    |
@@ -191,7 +191,7 @@ Moreover, the default experiment settings/parameters of aforementioned seven bas
 </tr>
 <tr>
 <th>conv_padding</th>
-<th>The size of padding</th>
+<th>The padding value</th>
 <th>[24, 72, 192]</th>
 </tr>
 <tr>
@@ -301,7 +301,7 @@ Moreover, the default experiment settings/parameters of aforementioned seven bas
 </tr>
 <tr>
 <th>stride</th>
-<th>The stride</th>
+<th>The stride value</th>
 <th>4</th>
 </tr>
 <tr>
@@ -336,10 +336,20 @@ Moreover, the default experiment settings/parameters of aforementioned seven bas
 <th>24</th>
 </tr>
 <tr>
-<th rowspan=5>OneShotSTL</th>
-<th>period</th>
-<th>The period times</th>
-<th>24</th>
+<th rowspan=3>OneShotSTL</th>
+<th>lambda1</th>
+<th>The hyper-parameter to control smoothness</th>
+<th>1.0</th>
+</tr>
+<tr>
+<th>lambda2</th>
+<th>The hyper-parameter to control smoothness</th>
+<th>0.5</th>
+</tr>
+<tr>
+<th>lambda3</th>
+<th>The hyper-parameter to control smoothness</th>
+<th>1.0</th>
 </tr>
 </table>
 
@@ -349,7 +359,7 @@ Commands for training and testing FPPformer of all datasets during multivariate/
 
 More parameter information please refer to `main.py`.
 
-We provide a complete command for training and testing FPPformer:
+We provide a complete command for training and testing FPPformerV2:
 
 For multivariate forecasting:
 
