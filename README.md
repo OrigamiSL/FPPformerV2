@@ -93,9 +93,9 @@ The folder tree in https://www.kaggle.com/datasets/franoisgeorgesjulien/crypto:
 | |-Binance_ETHUSDT_1h (1).csv
 ```
 
-Then you can run `./data/preprocess.py` to preprocess the raw data of Air, River, BTC and ETH datasets. 
+Then you can run `./data/preprocess.py` to preprocess the raw data of Air, River, BTC and ETH datasets. Attention! If you directly use the preprocessed datasets provided in this repository, there is no need to run `./data/preprocess.py`, otherwise errors would occur.
 
-We replace the missing values, which are tagged with -200 value, by the average values of normal ones. We remove the variable `NMHC(GT)` in Air dataset in that all data of this variable in test subset is missing. We only select the first eight variables as thers are corresponding time-lagged observations from different hours in the past. We remove the discrete variables in BTC/ETH datasets. 
+In 'preprocess.py', We replace the missing values, which are tagged with -200 value, by the average values of normal ones. We remove the variable `NMHC(GT)` in Air dataset in that all data of this variable in test subset is missing. In River dataset, we only select the first eight variables as others are corresponding time-lagged observationst. Moreover, We remove the discrete variables in BTC/ETH datasets. 
 
 After you successfully run `./data/preprocess.py`, you will obtain folder tree:
 ```
