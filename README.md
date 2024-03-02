@@ -12,7 +12,6 @@ The schematic in Figure 1 unveils the architecture of FPPformerV2. Compared with
 
 As a whole, on the basis of EMD, the self-attentions in FPPformV2 encoder extract the parametric global input sequence features shared by all time-series sequences, as well as the dynamic cross-variable inter-relationships while FPPformV2 decoder receives the non-parametric local input sequence features, which vary with different input sequences. The global features and the local features interact with each other in the cross-attention modules of decoder, endowing with the property of global-local forecasting to FPPformerV2.
 
-After outlining the model architecture of FPPformerV2, we commence the expositions of its two core and unique components.
 <p align="center">
 <img src="./img/Architecture.png" height = "700" alt="" align=center />
 <br><br>
@@ -22,13 +21,14 @@ After outlining the model architecture of FPPformerV2, we commence the expositio
 
 ## Requirements
 
-- Python 3.8.8
-- matplotlib == 3.3.4
-- numpy == 1.20.1
-- pandas == 1.2.4
-- scipy == 1.9.0
+- python == 3.11.4
+- numpy == 1.24.3
+- pandas == 1.5.3
+- scipy == 1.11.3
 - scikit_learn == 0.24.1
-- torch == 1.11.0
+- torch == 2.1.0+cu118
+- EMD-signal == 1.5.2
+
 
 Dependencies can be installed using the following command:
 ```bash
